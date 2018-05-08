@@ -1,11 +1,11 @@
-﻿using ConsoleLibrary.Interfaces;
+﻿using DataLibrary.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleLibrary.Abstracts
+namespace DataLibrary.Abstracts
 {
-    public abstract class CheckoutItem : ICheckOutable
+    internal abstract class CheckoutItem : ICheckOutable
     {
         public string Id { get; set; }
         public string Name { get; set; }

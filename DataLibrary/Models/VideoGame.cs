@@ -1,10 +1,10 @@
 ﻿using System;
-using ConsoleLibrary.Abstracts;
-using ConsoleLibrary.Interfaces;
+using DataLibrary.Abstracts;
+using DataLibrary.Interfaces;
 
-namespace ConsoleLibrary.Models
+namespace DataLibrary.Models
 {
-    public class VideoGame : CheckoutItem
+    internal class VideoGame : CheckoutItem
     {
         public string Platform { get; set; }
         

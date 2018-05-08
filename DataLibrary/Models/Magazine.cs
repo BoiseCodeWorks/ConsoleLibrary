@@ -1,11 +1,11 @@
-﻿using ConsoleLibrary.Interfaces;
+﻿using DataLibrary.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleLibrary.Models
+namespace DataLibrary.Models
 {
-    public class Magazine : ILibraryItem
+    internal class Magazine : ILibraryItem
     {
         public string Id { get; set; }
         public string Name { get; set; }

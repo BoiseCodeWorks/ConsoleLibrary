@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleLibrary.Interfaces
+namespace DataLibrary.Interfaces
 {
-    public interface ICheckOutable : ILibraryItem
+    internal interface ICheckOutable : ILibraryItem
     {
         DateTime CheckOutDate { get; set; }
         DateTime ReturnDate { get; set; }

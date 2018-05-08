@@ -1,10 +1,10 @@
-﻿using ConsoleLibrary.Abstracts;
-using ConsoleLibrary.Interfaces;
+﻿using DataLibrary.Abstracts;
+using DataLibrary.Interfaces;
 using System;
 
-namespace ConsoleLibrary.Models
+namespace DataLibrary.Models
 {
-    public class Book : CheckoutItem
+    internal class Book : CheckoutItem
     {
         public string ISBN { get; set; }
         public string Author { get; set; }

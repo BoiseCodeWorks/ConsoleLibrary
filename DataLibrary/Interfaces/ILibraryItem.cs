@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleLibrary.Interfaces
+namespace DataLibrary.Interfaces
 {
-    public interface ILibraryItem
+    internal interface ILibraryItem
     {
         string Id { get; set; }
         string Name { get; set; }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleLibrary.Models
+namespace ConsoleLibrary.Utils
 {
     public class MenuOption
     {
