@@ -1,4 +1,5 @@
 ﻿using DataLibrary.Abstracts;
+using DataLibrary.HelperModels;
 using DataLibrary.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -18,8 +19,6 @@ namespace DataLibrary.Models
         private List<VideoGame> VideoGames = new List<VideoGame>();
         private List<ILibraryItem> Items = new List<ILibraryItem>();
         private List<ICheckOutable> ItemsForCheckout = new List<ICheckOutable>();
-        //private Menu MainMenu { get; set; }
-        //private Menu BookMenu { get; set; }
 
         public Library(string name, string address)
         {
@@ -27,109 +26,56 @@ namespace DataLibrary.Models
             Address = address;
             Visiting = true;
             InSection = false;
-            //MainMenu = BuildMainMenu();
         }
 
-        //Menu BuildMainMenu()
-        //{
-        //    return new Menu(
-        //        "Main Menu",
-        //        new List<MenuOption>
-        //        {
-        //            new MenuOption(BookSelection, "Visit the Book Section"),
-        //            new MenuOption(VideoGameSelection, "Visit the Video Game Section"),
-        //            new MenuOption(LeaveLibrary, "Leave the Library")
-        //        });
-        //}
+        internal string CheckOutBook(string bookId)
+        {
+            Book b = Books.Find(book => book.Id == bookId);
+            if(b != null)
+            {
+                return b.Checkout();
+            }
+            return "Sorry couldn't find book";
+        }
 
-        //public void Setup()
-        //{
-        //    BuildBookMenu();
-        //}
+        internal List<ReturnLibraryItem> GetBooksInfo()
+        {
+            var booksInfo = new List<ReturnLibraryItem>();
+            foreach(var b in Books)
+            {
+                booksInfo.Add(new ReturnLibraryItem(b.Id, b.Name));
+            }
+            return booksInfo;
+        }
 
-        //void BuildBookMenu()
-        //{
-        //     BookMenu = new Menu(
-        //        "Book Menu",
-        //        new List<MenuOption>
-        //        {
-        //            new MenuOption(PrintBooks, "View all the Books"),
-        //            new MenuOption(LeaveSection, "Leave the Section")
-        //        });
-        //}
-
-
-        //public void MainMenuSelection()
-        //{
-        //    Action action = MainMenu.SelectOption();
-        //    if( action != null)
-        //    {
-        //        action.Invoke();
-        //    }
-        //}
-
-        //private void BookSelection()
-        //{
-        //    Console.Clear();
-        //    InSection = true;
-        //    while(InSection)
-        //    {
-        //        Action action = BookMenu.SelectOption();
-        //        if (action != null)
-        //        {
-        //            action.Invoke();
-        //        }
-        //    }
-        //}
-
-        //private void VideoGameSelection()
-        //{
-        //    Console.WriteLine("Under Construction");
-        //}
-
-        //private void LeaveLibrary()
-        //{
-        //    Console.WriteLine("Thanks for stopping in!");
-        //    Visiting = false;
-        //}
-
-        //private void LeaveSection()
-        //{
-        //    Console.WriteLine("You've left the Section!");
-        //    InSection = false;
-        //}
-
-        //private void PrintBooks()
-        //{
-        //    Console.Clear();
-        //    int count = 1;
-        //    foreach(Book book in Books)
-        //    {
-        //        Console.WriteLine($"{count++} {book.Name} - {book.Author}");
-        //    }
-        //    Console.ReadLine();
-        //}
-
+        void AssignId(ILibraryItem item)
+        {
+            item.Id = Guid.NewGuid().ToString();
+        }
 
         internal void AddItem(ILibraryItem item)
         {
+            AssignId(item);
             Items.Add(item);
         }
 
         internal void AddItem(Book book)
         {
+            AssignId(book);
             Books.Add(book);
             AddItem((CheckoutItem)book);
         }
 
         internal void AddItem(VideoGame game)
         {
+            AssignId(game);
             VideoGames.Add(game);
             AddItem((CheckoutItem)game);
         }
 
         private void AddItem(CheckoutItem item)
         {
+            AssignId(item);
             ItemsForCheckout.Add(item);
         }
 

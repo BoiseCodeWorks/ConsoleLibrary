@@ -33,7 +33,7 @@ namespace DataLibrary
             bL.AddItem(battlefield1942);
             bL.AddItem(dnd121);
 
-            Book myFavoriteSWCharacterKylo = new Book("Kylo is the best!!!!", "i<)Kylo", "Jake Christopherson");
+            Book myFavoriteSWCharacterKylo = new Book("Kylo is the best!!!!", "i <3 Kylo", "Jake Christopherson");
             nL.AddItem(myFavoriteSWCharacterKylo);
 
         }

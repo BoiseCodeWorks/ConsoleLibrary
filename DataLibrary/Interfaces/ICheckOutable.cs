@@ -8,7 +8,7 @@ namespace DataLibrary.Interfaces
     {
         DateTime CheckOutDate { get; set; }
         DateTime ReturnDate { get; set; }
-        void Checkout();
+        string Checkout();
         //LibraryMember IssuedTo { get; set; }
     }
 }

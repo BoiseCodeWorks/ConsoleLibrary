@@ -9,14 +9,16 @@ namespace DataLibrary.Abstracts
     {
         public string Id { get; set; }
         public string Name { get; set; }
+        //add available and set it
 
         public DateTime CheckOutDate { get; set; }
         public DateTime ReturnDate { get; set; }
 
-        public void Checkout()
+        public string Checkout()
         {
             CheckOutDate = DateTime.Now;
             ReturnDate = DateTime.Now.AddDays(7);
+            return $"You have checked out {Name}, on {CheckOutDate}, it is due {ReturnDate}";
         }
     }
 }

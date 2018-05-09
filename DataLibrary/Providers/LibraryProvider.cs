@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DataLibrary.HelperModels;
+using DataLibrary.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -24,7 +26,14 @@ namespace DataLibrary.Providers
             return libNames;
         }
 
+        public List<ReturnLibraryItem> GetBooks(int libraryId)
+        {
+            return _db.Libraries[libraryId].GetBooksInfo();
+        }
 
-
+        public string CheckOutBook(int libraryId, string bookId)
+        {
+            return _db.Libraries[libraryId].CheckOutBook(bookId);
+        }
     }
 }

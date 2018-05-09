@@ -10,8 +10,10 @@ namespace ConsoleLibrary
         static void Main(string[] args)
         {
             LibraryService ls = new LibraryService();
-            ls.ShowLibraries();
-            Console.ReadLine();
+            while(ls.Running)
+            {
+                ls.LibrarySelection();
+            }
 
             
 
